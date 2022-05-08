@@ -36,7 +36,7 @@ function App() {
   };
 
   function addFilm(film) {
-    setFilms(oldFilms => [ ...oldFilms, { ...film, id: localFilms.length + 1 } ]);
+    setFilms(oldFilms => [ ...oldFilms, { ...film, id: Math.max.apply(Math, oldFilms.map(f => f.id)) + 1 } ]);
   };
 
   function updateFilm(film) {
